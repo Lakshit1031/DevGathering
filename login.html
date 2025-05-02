@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body class="bg-navy min-h-screen font-sans text-white">
+    <!-- Navigation -->
+    <nav class="bg-navy/80 backdrop-blur-sm fixed w-full z-50">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <div style="margin-top: 5px; text-align: center;">
+                <a href="index.html" style="display: inline-block; margin:0px; padding:4px 4px; background-color: #2A9FD6; color: white; border-radius: 3px; text-decoration: none; font-weight: bold; font-size: 10px;">Go back</a>
+            
+        </div>
+    </nav>
+    <div class="container" style="padding-top: 80px;">
+        <h1>Create Account</h1>
+
+        <form id="createAccountForm">
+            <!-- Account Details -->
+            <div class="section">
+                <h2>1. Account Details</h2>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <small id="passwordHelp" style="color: #555; display: block; margin-bottom: 10px;">
+                    Password must contain alphabets (both uppercase and lowercase), numbers, no dashes, and both uppercase and lowercase letters are mandatory.
+                </small>
+            </div>
+
+            <!-- Personal Details -->
+            <div class="section">
+                <h2>2. Personal Details</h2>
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" required>
+
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" required>
+
+                <label for="aadhar">Aadhar Number</label>
+                <input type="text" id="aadhar" name="aadhar" required>
+
+                <label for="domain">Domain Name (if applicable)</label>
+                <input type="text" id="domain" name="domain">
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="address">Address</label>
+                <textarea id="address" name="address" required></textarea>
+            </div>
+
+            <!-- Business Details -->
+            <div class="section">
+                <h2>3. Business Details</h2>
+                <label for="gst">GST Number</label>
+                <input type="text" id="gst" name="gst" required>
+
+                <label for="pan">PAN Card Number</label>
+                <input type="text" id="pan" name="pan" required>
+
+                <div class="upload-container">
+                    <div class="upload-item">
+                        <label for="Aadhar">Aadhar upload</label>
+                        <input type="file" id="Aadhar" name="Addhar">
+                    </div>
+                    <div class="upload-item">
+                        <label for="PanCard">Pan card upload</label>
+                        <input type="file" id="PanCard" name="PanCard">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">Create Account</button>
+        </form>
+
+        <!-- Popup Modal -->
+        <div id="hubModal" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center;">
+            <div style="background: white; padding: 30px; border-radius: 10px; text-align: center; max-width: 400px; margin: auto;">
+                <h2 style="margin-bottom: 20px;">Choose your destination</h2>
+                <button id="startupHubBtn" style="margin: 10px; padding: 10px 20px; font-size: 16px; cursor: pointer;">Startup Hub</button>
+
+                <button id="researcherHubBtn" style="margin: 10px; padding: 10px 20px; font-size: 16px; cursor: pointer;">Researcher Hub</button>
+            </div>
+        </div>
+
+        <!-- Additional Buttons for startup.html and researcher.html -->
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="startuphub.html" style="display: inline-block; margin: 10px; padding: 12px 24px; background-color: #2A9FD6; color: white; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px;">Startup Hub</a>
+            <a href="researcher hub.html" style="display: inline-block; margin: 10px; padding: 12px 24px; background-color: #2A9FD6; color: white; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px;">Researcher Hub</a>
+        </div>
+
+        <script>
+            const form = document.getElementById('createAccountForm');
+            const passwordInput = document.getElementById('password');
+            const passwordHelp = document.getElementById('passwordHelp');
+            const hubModal = document.getElementById('hubModal');
+            const startupHubBtn = document.getElementById('startupHubBtn');
+            const researcherHubBtn = document.getElementById('researcherHubBtn');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const password = passwordInput.value;
+                const hasUpperCase = /[A-Z]/.test(password);
+                const hasLowerCase = /[a-z]/.test(password);
+                const hasNumber = /[0-9]/.test(password);
+                const hasDash = /[-]/.test(password);
+
+                if (!hasUpperCase || !hasLowerCase || !hasNumber || hasDash) {
+                    alert('Password must contain alphabets (both uppercase and lowercase), numbers, no dashes, and both uppercase and lowercase letters are mandatory.');
+                    passwordInput.focus();
+                    return;
+                }
+
+                // Simulate successful account creation and show the popup modal
+                setTimeout(() => {
+                    hubModal.style.display = 'flex';
+                }, 500); // simulate delay for account creation
+            });
+
+            startupHubBtn.addEventListener('click', function() {
+                window.location.href = 'startuphub.html';
+            });
+
+            researcherHubBtn.addEventListener('click', function() {
+                window.location.href = 'researcher hub.html';
+            });
+        </script>
+    </div>
+    <div>
+    <a href="login.html" class="relative group overflow-hidden rounded-lg shadow-lg flex flex-col justify-center pt-12">
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+        const passwordInput = document.getElementById('password');
+        const passwordHelp = document.getElementById('passwordHelp');
+
+        form.addEventListener('submit', function(event) {
+            const password = passwordInput.value;
+            const hasUpperCase = /[A-Z]/.test(password);
+            const hasLowerCase = /[a-z]/.test(password);
+            const hasNumber = /[0-9]/.test(password);
+            const hasDash = /[-]/.test(password);
+
+            if (!hasUpperCase || !hasLowerCase || !hasNumber || hasDash) {
+                event.preventDefault();
+                alert('Password must contain alphabets (both uppercase and lowercase), numbers, no dashes, and both uppercase and lowercase letters are mandatory.');
+                passwordInput.focus();
+            }
+        });
+    </script>
+</body>
+</html>
