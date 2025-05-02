@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home - Startup Research Connection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: "#0B1622",
+              "accent-blue": "#2A9FD6",
+            },
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .geometric-pattern {
+        background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      .geometric-pattern::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30L30 0Z' fill='%232A9FD6' fill-opacity='0.1'/%3E%3C/svg%3E");
+        background-size: 100px 100px;
+        animation: patternMove 20s linear infinite;
+        opacity: 0.5;
+      }
+      @keyframes patternMove {
+        0% {
+          transform: translateX(0) translateY(0);
+        }
+        100% {
+          transform: translateX(100px) translateY(100px);
+        }
+      }
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover,
+      .card-hover:focus-within {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(42, 159, 214, 0.2);
+        outline: none;
+      }
+      button:focus-visible,
+      a:focus-visible {
+        outline: 2px solid #2a9fd6;
+        outline-offset: 2px;
+      }
+      /* Hide mobile nav by default */
+      #mobile-nav {
+        display: none;
+      }
+    </style>
+</head>
+<body class="geometric-pattern min-h-screen font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white/90 backdrop-blur-sm fixed w-full z-50 shadow-sm" aria-label="Primary Navigation">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-8">
+                    <button class="lg:hidden text-navy" aria-controls="mobile-nav" aria-expanded="false" aria-label="Open menu" id="open-mobile-nav">
+                        <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="how.html" class="text-navy hover:text-accent-blue transition" tabindex="0">How it works</a>
+                    <a href="home.html" class="text-navy hover:text-accent-blue transition" tabindex="0">Home</a>
+                    <a href="about.html" class="text-navy hover:text-accent-blue transition" tabindex="0">About</a>
+                </div>
+            </div>
+
+            <!-- Responsive Navigation Menu -->
+            <div class="lg:hidden fixed top-0 left-0 w-full h-screen bg-white/90 backdrop-blur-sm z-50 shadow-sm" id="mobile-nav" aria-label="Mobile Navigation" role="dialog" aria-modal="true" aria-hidden="true">
+                <div class="container mx-auto px-4 py-8">
+                    <div class="flex justify-between items-center">
+                        <a href="how.html" class="text-navy hover:text-accent-blue transition" tabindex="0">How it works</a>
+                        <button class="text-navy" id="close-mobile-nav" aria-label="Close menu">
+                            <i class="fas fa-times text-2xl" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Script to toggle mobile navigation -->
+    <script>
+      const mobileNav = document.getElementById("mobile-nav");
+      const openMobileNav = document.getElementById("open-mobile-nav");
+      const closeMobileNav = document.getElementById("close-mobile-nav");
+
+      openMobileNav.addEventListener("click", () => {
+        mobileNav.style.display = "block";
+        mobileNav.setAttribute("aria-hidden", "false");
+        openMobileNav.setAttribute("aria-expanded", "true");
+      });
+
+      closeMobileNav.addEventListener("click", () => {
+        mobileNav.style.display = "none";
+        mobileNav.setAttribute("aria-hidden", "true");
+        openMobileNav.setAttribute("aria-expanded", "false");
+        openMobileNav.focus();
+      });
+    </script>
+
+    <main>
+        <!-- Hero Section -->
+        <header class="pt-32 pb-20 px-4 text-center">
+            <div class="container mx-auto">
+                <h1 class="text-6xl font-bold text-navy mb-8">HOME</h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Welcome to the hub where innovation meets expertise. Discover opportunities, connect with researchers, and transform your ideas into reality.
+                </p>
+            </div>
+        </header>
+
+        <!-- Features Section -->
+        <section class="py-20 px-4" aria-labelledby="features-heading">
+            <div class="container mx-auto">
+                <h2 id="features-heading" class="sr-only">Features</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature Card 1 -->
+                    <article class="bg-white rounded-xl p-8 shadow-sm card-hover" tabindex="0">
+                        <div class="text-accent-blue mb-4">
+                            <i class="fas fa-search text-3xl" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-navy mb-4">Find Experts</h3>
+                        <p class="text-gray-600">
+                            Connect with leading researchers in your field and get expert insights for your startup.
+                        </p>
+                    </article>
+
+                    <!-- Feature Card 2 -->
+                    <article class="bg-white rounded-xl p-8 shadow-sm card-hover" tabindex="0">
+                        <div class="text-accent-blue mb-4">
+                            <i class="fas fa-lightbulb text-3xl" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-navy mb-4">Share Knowledge</h3>
+                        <p class="text-gray-600">
+                            Contribute your expertise and help shape the future of innovative startups.
+                        </p>
+                    </article>
+
+                    <!-- Feature Card 3 -->
+                    <article class="bg-white rounded-xl p-8 shadow-sm card-hover" tabindex="0">
+                        <div class="text-accent-blue mb-4">
+                            <i class="fas fa-rocket text-3xl" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-navy mb-4">Grow Together</h3>
+                        <p class="text-gray-600">
+                            Build lasting partnerships and accelerate your startup's growth journey.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 px-4 relative overflow-hidden" aria-labelledby="cta-heading">
+            <div class="container mx-auto text-center">
+                <h2 id="cta-heading" class="text-3xl font-bold text-navy mb-6">Ready to Start Your Journey?</h2>
+                <div class="bg-navy rounded-2xl p-12 relative z-10">
+                    <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
+                        Join our community of innovators and researchers making a difference in the startup ecosystem.
+                    </p>
+                    <button
+                      class="bg-accent-blue hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent-blue focus:ring-offset-2"
+                      type="button"
+                    >
+                      Get Started Now
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/80 backdrop-blur-sm py-8" role="contentinfo">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-600 hover:text-accent-blue transition" aria-label="Twitter" tabindex="0">
+                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-accent-blue transition" aria-label="LinkedIn" tabindex="0">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-accent-blue transition" aria-label="GitHub" tabindex="0">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
