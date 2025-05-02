@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - Startup Research Connection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Diamond Pattern Background */
+        .diamond-pattern {
+            background: linear-gradient(135deg, #f0f7ff 25%, transparent 25%, transparent 75%, #f0f7ff 75%, #f0f7ff), 
+                        linear-gradient(225deg, #f0f7ff 25%, transparent 25%, transparent 75%, #f0f7ff 75%, #f0f7ff);
+            background-size: 70px 70px;
+            position: relative;
+            overflow-y: auto;
+            animation: diamondMove 10s linear infinite;
+        }
+        body{
+            h2:5px;
+            margin:2px;
+        }
+        
+        /* Animation for background */
+        @keyframes diamondMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 70px 70px; }
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(42, 159, 214, 0.2);
+        }
+        
+        /* Flowchart styles */
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .flowchart div {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body class="diamond-pattern min-h-screen font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white/90 backdrop-blur-sm fixed w-full z-50 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-8">
+                    <button class="lg:hidden text-navy">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    
+                </div>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <div class="hidden lg:flex items-center space-x-8">
+                        <a href="how.html" class="text-navy hover:text-accent-blue transition" tabindex="0">How it works</a>
+                        <a href="home.html" class="text-navy hover:text-accent-blue transition" tabindex="0">Home</a>
+                        <a href="about.html" class="text-navy hover:text-accent-blue transition" tabindex="0">About</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page 1 Content -->
+    <div id="page1" class="min-h-screen pt-32 pb-20 px-4">
+        <div class="container mx-auto text-center">
+            <h1 class="text-6xl font-bold text-navy mb-8">How It Works</h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Discover how to connect easily  with startups and researchers. Our platform simplifies the process of finding the right connections for your needs.
+            </p>
+        </div>
+
+        <section class="container mx-auto px-4 py-12 grid grid-cols-1 gap-12">
+            <div class="flowchart">
+                <h2 class="text-3xl font-semibold mb-6 text-navy">For Startups</h2>
+                <h2><heading>Startup Community Connection Overview</heading></h2>
+<ul>
+            <li>        <h3>Login Requirements:</li></h3><h2> Startups must register using Aadhar and PAN card verification.</h2>
+            <li>       <h3> Profile Creation:</li></h3><h2> A detailed business profile is necessary for better visibility.</h2>
+            <li>      <h3>  Project Upload:</li></h3><h2> Users can upload projects to receive researcher suggestions.</h2>
+            <li>      <h3>  Community Interaction:</li></h3><h2> Engage with the community for improvement insights and connections with researchers.</h2> 
+</ul>
+            </div>
+            <div class="flowchart">
+                <h2 class="text-3xl font-semibold mb-6 text-navy">For Researchers</h2>
+            <h2>    Here are five key points on how a researcher can approach verification requirements and engage with the community:<h2>
+
+<h2><bold>1. Verification Process</bold></h2>
+<ul>
+<li>Enrolment Number: Collect the enrolment number from participants for identity verification.</li>
+<li>Institution Name: Ensure to include the name of the college or institution for authenticity.</li>
+</ul>
+<h2><bold>2. Identification Documents</bold></h2>
+<ul>
+<li>Aadhar Card: Request a copy of the Aadhar card to confirm identity and residency.</li>
+<li>PAN Card: Include the PAN card for financial and identity verification purposes.</li>
+</ul>
+<h2><bold>3. Community Engagement</bold></h2>
+<ul>
+<li>Feedback Mechanism: Establish a platform (like forums or surveys) where community members can ask questions or provide suggestions.</li>
+<li>Open Dialogue: Encourage a two-way dialogue for participants to express concerns or share insights related to the research topic.</li>
+</ul>
+<h2><bold>4. Ethical Considerations</bold></h2>
+<ul>
+<li>Informed Consent: Ensure participants understand how their information will be used and gain their consent.</li>
+Confidentiality: Assure participants that their data will be kept confidential and used solely for research purposes.</li>
+</ul>
+<h1><bold>5. Writing and Communication</bold></h1>
+<ul>
+<li>Clear Instructions: Provide clear guidelines on how to submit verification documents and participate in the research.</li>
+<li>Professional Tone: Maintain a respectful and professional tone in all communication to foster trust and cooperation from the community.</li>
+</ul>
+            </div>
+        </section>
+    </div>
+
+   
+</body>
+</html>
